@@ -1,0 +1,10 @@
+SELECT SUM(p.Price * oi.Quantity) AS TotalRevenue FROM OrderItems oi JOIN Products p ON oi.ProductID = p.ProductID;
+SELECT u.UserName, COUNT(o.OrderID) AS OrderCount FROM Users u JOIN Orders o ON u.UserID = o.UserID GROUP BY u.UserID;
+SELECT AVG(Price) AS AverageProductPrice FROM Products;
+SELECT p.Name, SUM(oi.Quantity) AS TotalQuantity FROM OrderItems oi JOIN Products p ON oi.ProductID = p.ProductID GROUP BY oi.ProductID;
+SELECT p.Name, SUM(oi.Quantity) AS QuantityOrdered FROM OrderItems oi JOIN Products p ON oi.ProductID = p.ProductID GROUP BY p.ProductID HAVING QuantityOrdered > 1;
+SELECT MAX(Price) AS HighestPrice FROM Products;
+SELECT MIN(Price) AS LowestPrice FROM Products;
+SELECT COUNT(*) AS UsersWithPassword FROM Users WHERE Password IS NOT NULL;
+SELECT OrderDate, COUNT(OrderID) AS OrdersPlaced FROM Orders GROUP BY OrderDate;
+SELECT AVG(Quantity) AS AvgQuantity FROM OrderItems;
